@@ -45,7 +45,7 @@ function AuthenticationForm(props: PaperProps) {
       {/* <Text size="lg" weight={500}>
         Welcome to LET'SMATCH!, {type} with
       </Text> */}
-      <Image  mx="auto" src="./Logo1.png" />
+      <Image  maw={240} mx="auto" radius="md" src="./Logo1.png" />
 
       <Divider labelPosition="center" my="lg" />
 
