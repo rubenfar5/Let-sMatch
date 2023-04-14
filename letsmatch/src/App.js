@@ -14,6 +14,8 @@ import {
   Checkbox,
   Anchor,
   Stack,
+  Image,
+  MantineProvider,
 } from '@mantine/core';
 
 // import { TextInput, Checkbox, Button, Group, Box } from '@mantine/core';
@@ -40,12 +42,12 @@ function AuthenticationForm(props: PaperProps) {
 
   return (
     <Paper radius="md" p="xl" withBorder {...props}>
-      <Text size="lg" weight={500}>
+      {/* <Text size="lg" weight={500}>
         Welcome to LET'SMATCH!, {type} with
-      </Text>
+      </Text> */}
+      <Image  mx="auto" src="./Logo1.png" />
 
-
-      <Divider label="Or continue with email" labelPosition="center" my="lg" />
+      <Divider labelPosition="center" my="lg" />
 
       <form onSubmit={form.onSubmit(() => {})}>
         <Stack>
@@ -62,7 +64,7 @@ function AuthenticationForm(props: PaperProps) {
           <TextInput
             required
             label="Email"
-            placeholder="hello@email.pt"
+            placeholder="Your email"
             value={form.values.email}
             onChange={(event) => form.setFieldValue('email', event.currentTarget.value)}
             error={form.errors.email && 'Invalid email'}
@@ -100,7 +102,7 @@ function AuthenticationForm(props: PaperProps) {
               ? 'Already have an account? Login'
               : "Don't have an account? Register"}
           </Anchor>
-          <Button type="submit" radius="xl">
+          <Button color="red" type="submit" radius="xl">
             {upperFirst(type)}
           </Button>
         </Group>
@@ -110,7 +112,9 @@ function AuthenticationForm(props: PaperProps) {
           }
 function App() {
   return (
+    
     <div className="App">
+      
       <header className="App-header">
         <AuthenticationForm />
       </header>
