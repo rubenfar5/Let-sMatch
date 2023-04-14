@@ -1,6 +1,9 @@
 .App {
   text-align: center;
+  background-image: linear-gradient(to bottom, #ff7777, #f32116);
+  background-repeat: no-repeat;
 }
+
 
 .App-logo {
   height: 40vmin;
@@ -14,7 +17,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: linear-gradient(to bottom, #ff2e2e, #ff4e0d);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -34,5 +37,14 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+
+/* Media query para o iPhone 11 */
+@media only screen and (max-device-width: 414px) {
+  .App {
+    font-size: 16px;
+    /* Outras regras de estilo para o iPhone 11... */
   }
 }
