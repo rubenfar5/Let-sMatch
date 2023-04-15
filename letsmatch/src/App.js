@@ -2,6 +2,9 @@ import logo from './logo.svg';
 import './App.css';
 import React, { useState } from 'react';
 import { useToggle, upperFirst } from '@mantine/hooks';
+import { useElementSize } from '@mantine/hooks';
+import { ArrowBadgeLeft } from 'tabler-icons-react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import {
   TextInput,
   PasswordInput,
@@ -16,16 +19,115 @@ import {
   Stack,
   Image,
   MantineProvider,
+  SimpleGrid,
+  BackgroundImage,
+  Center,
+  Title,
+  Box,
+  ActionIcon,
 } from '@mantine/core';
 
 // import { TextInput, Checkbox, Button, Group, Box } from '@mantine/core';
 import { useForm } from '@mantine/form';
 
 
+function Lista(props: PaperProps) {
+  const { ref, width, height } = useElementSize();
+
+
+  return (
+    <div>
+      <Paper radius="md"  mt={30} withBorder {...props}>
+      <ActionIcon variant="transparent"><ArrowBadgeLeft size="6rem" color='red' mt={15} />  </ActionIcon>
+      <Image  maw={30} mx="auto" radius="md" src="./Logo2.png" />
+      </Paper>
+
+    <Paper radius="md" p="xl" mt={15} mb={15} withBorder {...props}>
+    <Title order={1} align="center" color="red" mb={15} >Sports Modalities
+    </Title>
+    <SimpleGrid cols={2}
+      spacing="lg">
+      <div>
+      <BackgroundImage
+        src="./Run.jpg"
+        radius="sm"
+        style={{height: 200 }}
+      >
+          <Text fw={500} color="#fff">
+            Run
+          </Text>
+      </BackgroundImage>
+      </div>
+      <div>
+      <BackgroundImage
+        src="./Futebol.jpg"
+        radius="sm"
+        style={{height: 200 }}
+      >
+        
+          <Text fw={500} color="#fff">
+          Football 
+          </Text>
+      </BackgroundImage>
+      </div>
+      <div>
+      <BackgroundImage
+        src="./Basket.jpg"
+        radius="sm"
+        style={{height: 200 }}
+      >
+        
+          <Text fw={500} color="#fff">
+            Basketball
+          </Text>
+      </BackgroundImage>
+      </div>
+      <div>
+      <BackgroundImage
+        src="./Padel.jpg"
+        radius="sm"
+        style={{height: 200 }}
+      >
+        
+          <Text fw={500} color="#fff">
+          Padel 
+          </Text>
+      </BackgroundImage>
+      </div>
+      <div>
+      <BackgroundImage
+        src="./Volei.jpg"
+        radius="sm"
+        style={{height: 200 }}
+      >
+        
+          <Text fw={500} color="#fff">
+          Volleyball
+          </Text>
+      </BackgroundImage>
+      </div>
+      <div>
+      <BackgroundImage
+        src="./Caminhada.jpg"
+        radius="sm"
+        style={{height: 200 , display: 'center', alignItems: 'flex-end'}}
+      >
+        
+          <Text fw={500} color="#fff" p="md">
+          Walk 
+          </Text>
+      </BackgroundImage>
+      </div>
+    </SimpleGrid>
+    </Paper>
+    </div>
+  )
+}
   
 
 function AuthenticationForm(props: PaperProps) {
   const [type, toggle] = useToggle(['login', 'register']);
+  const [authenticated, setAuthenticated] = useState(false); // novo estado
   const form = useForm({
     initialValues: {
       email: '',
@@ -40,6 +142,17 @@ function AuthenticationForm(props: PaperProps) {
     },
   });
 
+  const handleLogin = () => {
+    // Faça a autenticação do usuário aqui
+    // ...
+    // Depois que a autenticação for bem-sucedida, defina authenticated como true
+    setAuthenticated(true);
+  };
+
+  if (authenticated) {
+    return <Lista />;
+  }
+
   return (
     <Paper radius="md" p="xl" withBorder {...props}>
       {/* <Text size="lg" weight={500}>
@@ -49,7 +162,7 @@ function AuthenticationForm(props: PaperProps) {
 
       <Divider labelPosition="center" my="lg" />
 
-      <form onSubmit={form.onSubmit(() => {})}>
+      <form onSubmit={form.onSubmit(handleLogin)}>
         <Stack>
           {type === 'register' && (
             <TextInput
