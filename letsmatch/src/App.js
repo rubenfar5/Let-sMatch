@@ -30,8 +30,8 @@ import {
 // import { TextInput, Checkbox, Button, Group, Box } from '@mantine/core';
 import { useForm } from '@mantine/form';
 
-
 function Lista(props: PaperProps) {
+//function Lista(props) {
   const { ref, width, height } = useElementSize();
 
 
@@ -124,8 +124,8 @@ function Lista(props: PaperProps) {
   )
 }
   
-
 function AuthenticationForm(props: PaperProps) {
+//function AuthenticationForm(props) {
   const [type, toggle] = useToggle(['login', 'register']);
   const [authenticated, setAuthenticated] = useState(false); // novo estado
   const form = useForm({
