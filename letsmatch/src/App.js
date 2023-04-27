@@ -30,6 +30,28 @@ import {
 // import { TextInput, Checkbox, Button, Group, Box } from '@mantine/core';
 import { useForm } from '@mantine/form';
 
+
+/*function Profile(props) {
+  const { name, email, bio } = props;
+
+  return (
+    <div>
+         <div>
+      <Paper radius="md"  mt={30} withBorder {...props}>
+      <ActionIcon variant="transparent"><ArrowBadgeLeft size="6rem" color='red' mt={15} />  </ActionIcon>
+      <Image  maw={30} mx="auto" radius="md" src="./Logo2.png" />
+      </Paper>
+      <Paper radius="md" p="xl" mt={15} mb={15} withBorder {...props}> </Paper>
+     <h1 order={1} align="center" color="red" mb={15}> Pedro Ribeiro</h1>
+   
+      <p>{email}</p>
+      <p>{"Sou o Pedro e sou professor de Historia. Gosto de jogar futebol no final do trabalho"}</p>
+    </div>
+    </div>
+  );
+}*/
+
+
 function Lista(props: PaperProps) {
 //function Lista(props) {
   const { ref, width, height } = useElementSize();
