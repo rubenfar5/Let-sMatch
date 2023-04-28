@@ -42,14 +42,14 @@ import { useForm } from '@mantine/form';
       <Image  maw={30} mx="auto" radius="md" src="./Logo2.png" />
       </Paper>
       <Paper radius="md" p="xl" mt={15} mb={15} withBorder {...props}> </Paper>
-     <h1 order={1} align="center" color="red" mb={15}> Pedro Ribeiro</h1>
+     <h1 order={1} align="center" color="red" mb={15}>Pedro Ribeiro</h1>
    
       <p>{email}</p>
-      <p>{"Sou o Pedro e sou professor de Historia. Gosto de jogar futebol no final do trabalho"}</p>
+      <p>{bio="Sou o Pedro e sou professor de Historia. Gosto de jogar futebol no final do trabalho"}</p>
     </div>
     </div>
   );
-}*/
+} */
 
 
 function Lista(props: PaperProps) {
@@ -57,18 +57,21 @@ function Lista(props: PaperProps) {
   const { ref, width, height } = useElementSize();
 
 
-  return (
+  return (  
     <div>
       <Paper radius="md"  mt={30} withBorder {...props}>
+      <div>
+      <Image display="flex" align-items=" center" margin-left="4" width= "25%" height= "10%" src="./user.png"/>
+</div>
       <ActionIcon variant="transparent"><ArrowBadgeLeft size="6rem" color='red' mt={15} />  </ActionIcon>
       <Image  maw={30} mx="auto" radius="md" src="./Logo2.png" />
       </Paper>
-
     <Paper radius="md" p="xl" mt={15} mb={15} withBorder {...props}>
     <Title order={1} align="center" color="red" mb={15} >Sports Modalities
     </Title>
     <SimpleGrid cols={2}
       spacing="lg">
+        
       <div>
       <BackgroundImage
         src="./Run.jpg"
